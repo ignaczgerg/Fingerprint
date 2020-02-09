@@ -34,7 +34,7 @@ plt.gca().set(title='Frequency Histogram', ylabel='Frequency');
 ##################################################
 
 sns.set_style('white')
-initialData_1 = pd.read_csv('calcPS_oligomers.csv')
+initialData_1 = pd.read_csv('calculations/calcPS_oligomers.csv')
 #initialData_2 = pd.read_csv('calcOdyes.csv')
 #initialData_3 = pd.read_csv('calcPS_oligomers.csv')
 #initialData_4 = pd.read_csv('calcUNPD_1.csv')
