@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 
-initialData = pd.read_csv('dimer.csv', sep=',')
+initialData = pd.read_csv('data/UNPD_DB_1.csv', sep=',')
 df = pd.DataFrame(initialData, columns = ['PMA_ID', 'SMILES'])
 df['SMILES'].replace('.' or '', np.nan, inplace=True)
 df.dropna(subset=['SMILES'], inplace=True)
@@ -31,7 +31,7 @@ def Iteration(df):
 
 Iteration(df)
 
-w = Chem.SDWriter('dimer.sdf') 
+w = Chem.SDWriter('calcUNPD_DB_1.sdf') 
 m = optimizedStructures.count(np.nan)      
 while m > 0:
     optimizedStructures.remove(np.nan)
