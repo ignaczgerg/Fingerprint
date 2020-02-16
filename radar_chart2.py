@@ -80,16 +80,16 @@ class ComplexRadar():
 
 # example data
 variables = ("Number of rotatable bonds", "Molar refractivity", "Log P", 
-            "H Donor", "H Acceptor", "Sphericity", "TPSA")
-data =  (5,     60,     5,      1,      3,      0.51,   68)
+            "H Donor", "H Acceptor", "TPSA", "Sphericity")
+data =  (5,     60,     5,      1,  3,  68, 0.51)
 
-data2 = (4,     79.5,   5,      0,      0,      0.2,    0) 
+data2 = (4,     79.5,   5,      0,  0,  0,  0.2) 
 
-data3 = (0,     73,     3.38,   1,      1,      0.26,   46) 
+data3 = (0,     73,     3.38,   1,  1,  46, 0.26) 
 
-data4 = (2,     58,     -0.2,   2,      6,      0.11,   93)
+data4 = (2,     58,     -0.2,   2,  6,  93, 0.11)
 
-ranges = [(0, 5), (20, 100), (-0.2, 5), (0, 2), (0, 6), (0, 0.6), (0, 100)]            
+ranges = [(0, 5), (20, 100), (-0.2, 5), (0, 2), (0, 6), (0, 100), (0, 1)]            
 # plotting
 fig1 = plt.figure(figsize=(8, 8), dpi=300)
 radar = ComplexRadar(fig1, variables, ranges)
