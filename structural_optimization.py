@@ -5,10 +5,10 @@ import pandas as pd
 import numpy as np
 
 
-initialData = pd.read_csv('data/UNPD_DB_1.csv', sep=',')
-df = pd.DataFrame(initialData, columns = ['PMA_ID', 'SMILES'])
-df['SMILES'].replace('.' or '', np.nan, inplace=True)
-df.dropna(subset=['SMILES'], inplace=True)
+initialData = pd.read_csv('data/test.csv', sep=',')
+df = pd.DataFrame(initialData, columns = ['Name', 'SMILES'])
+#df['SMILES'].replace('.' or '', np.nan, inplace=True)
+#df.dropna(subset=['SMILES'], inplace=True)
 
 optimizedStructures  = []
 embedStructures = []
@@ -20,7 +20,7 @@ def StructureOpt(mol):
     if rdkit.Chem.rdDistGeom.EmbedMolecule(mol, maxAttempts=10, randomSeed = 0, useRandomCoords=True) == -1:
         mol = np.nan
     else:
-        AllChem.MMFFOptimizeMolecule(mol, maxIters = 300)
+        AllChem.MMFFOptimizeMolecule(mol, maxIters = 100)
     return(mol)    
 
 
@@ -31,10 +31,11 @@ def Iteration(df):
 
 Iteration(df)
 
-w = Chem.SDWriter('calcUNPD_DB_1.sdf') 
+w = Chem.SDWriter('test.sdf') 
 m = optimizedStructures.count(np.nan)      
 while m > 0:
     optimizedStructures.remove(np.nan)
     m = m-1
-for n in range(len(df)): w.write(optimizedStructures[n])
+for n in range(len(df)): 
+    w.write(optimizedStructures[n])
 

@@ -94,9 +94,9 @@ ranges = [(0, 5), (20, 100), (-0.2, 5), (0, 2), (0, 6), (0, 100), (0, 1)]
 fig1 = plt.figure(figsize=(8, 8), dpi=300)
 radar = ComplexRadar(fig1, variables, ranges)
 
-radar.fill(data, alpha=0.2, color="red")
+#radar.fill(data, alpha=0.2, color="red")
 radar.fill(data2, alpha=0.3, color="blue")
-#radar.fill(data3, alpha=0.4, color="green")
-#radar.fill(data4, alpha=0.2, color="yellow")
+radar.fill(data3, alpha=0.4, color="green")
+radar.fill(data4, alpha=0.7, color="yellow")
 
 plt.show()
